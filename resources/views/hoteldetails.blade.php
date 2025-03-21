@@ -8,7 +8,7 @@
             <div class="">
                
                 <img src="https://th.bing.com/th/id/OIP.-wcXcPg9mUaWmMJuoWXgHgAAAA?w=303&h=202&c=7&r=0&o=5&dpr=1.3&pid=1.7" 
-                     class="rounded-2xl w-full h-64 object-cover " 
+                     class="rounded-2xl w-full h-64 object-fill " 
                      alt="Hotel Moonlight and Bar" />
                      
                 

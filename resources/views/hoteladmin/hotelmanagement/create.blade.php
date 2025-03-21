@@ -4,7 +4,7 @@
 <div>
   <form action="" method="POST">
     @csrf 
-    <div class=" border border-2 relative m-10">
+    <div class=" border border-2 relative m-10 ">
 <div class="p-6 space-y-6">
         <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
@@ -36,7 +36,19 @@
                 <textarea name="about" rows="5" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" placeholder=""></textarea>
             </div>
             <div class="col-span-full">
-                <label for="product-details" class="text-sm font-medium  block mb-2">Photo:</label>
+                <label for="product-details" class="text-sm font-medium  block mb-2">Photo 1:</label>
+                <input type="file" name="photopath" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" multiple="" placeholder="">
+            </div>
+            <div class="col-span-full">
+                <label for="product-details" class="text-sm font-medium  block mb-2">Photo 2:</label>
+                <input type="file" name="photopath" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" multiple="" placeholder="">
+            </div>
+            <div class="col-span-full">
+                <label for="product-details" class="text-sm font-medium  block mb-2">Photo 3:</label>
+                <input type="file" name="photopath" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" multiple="" placeholder="">
+            </div>
+            <div class="col-span-full">
+                <label for="product-details" class="text-sm font-medium  block mb-2">Photo 4:</label>
                 <input type="file" name="photopath" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" multiple="" placeholder="">
             </div>
         </div>
