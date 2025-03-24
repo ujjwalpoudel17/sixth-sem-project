@@ -2,7 +2,7 @@
 @section('title','Add Hotel')
 @section('content')
 <div>
-  <form action="" method="POST">
+  <form action="{{route('hotelmanagement.store')}}" method="POST" enctype="multipart/form-data">
     @csrf 
     <div class=" border border-2 relative m-10 ">
 <div class="p-6 space-y-6">
@@ -27,6 +27,10 @@
                 <label for="price" class="text-sm font-medium text-gray-900 block mb-2">Starting Price</label>
                 <input type="text" name="price" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
             </div>
+            <div class="col-span-6 sm:col-span-3">
+                <label for="price" class="text-sm font-medium text-gray-900 block mb-2">Discounted Price</label>
+                <input type="text" name="discount_price" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5" placeholder="" required="">
+            </div>
             <div class="col-span-full">
                 <label for="product-details" class="text-sm font-medium  block mb-2">Rules</label>
                 <textarea name="rules" rows="3" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" placeholder=""></textarea>
@@ -37,27 +41,27 @@
             </div>
             <div class="col-span-full">
                 <label for="product-details" class="text-sm font-medium  block mb-2">Photo 1:</label>
-                <input type="file" name="photopath" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" multiple="" placeholder="">
+                <input type="file" name="photopath" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" placeholder="">
             </div>
             <div class="col-span-full">
                 <label for="product-details" class="text-sm font-medium  block mb-2">Photo 2:</label>
-                <input type="file" name="photopath" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" multiple="" placeholder="">
+                <input type="file" name="photopath2" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4"  placeholder="">
             </div>
             <div class="col-span-full">
                 <label for="product-details" class="text-sm font-medium  block mb-2">Photo 3:</label>
-                <input type="file" name="photopath" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" multiple="" placeholder="">
+                <input type="file" name="photopath3" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4"  placeholder="">
             </div>
             <div class="col-span-full">
                 <label for="product-details" class="text-sm font-medium  block mb-2">Photo 4:</label>
-                <input type="file" name="photopath" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4" multiple="" placeholder="">
+                <input type="file" name="photopath4" class=" border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4"  placeholder="">
             </div>
         </div>
 </div>
 
-<div class="p-6 border-gray-200 rounded-b">
-    <a href="" class="text-white bg-blue-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Add</a>
-    <a href="{{route('hotelmanagement.index')}}" class="text-white bg-red-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Cancel</a>
-</div>
+  <div class="flex mb-5 mx-6 gap-3">
+        <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-xl">Add Hotel</button>
+       <a href="{{route('hotelmanagement.index')}}" class="bg-red-500 text-white font-bold py-2 px-4 rounded-xl">Cancel</a>
+    </div>
 
 </div>
   </form>

@@ -58,7 +58,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/hotelmanagement/create',[HotelController::class,'create'])
     ->name('hotelmanagement.create');
 
-    Route::get('/hotelmanagement/edit',[HotelController::class,'edit'])
+    Route::post('/hotelmanagement/store',[HotelController::class,'store'])
+    ->name(('hotelmanagement.store'));
+
+    Route::get('/hotelmanagement/{id}/edit',[HotelController::class,'edit'])
     ->name('hotelmanagement.edit');
 
 
