@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HotelManagement;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     public function index()
     {
-        return view ('welcome');
+        $hotelmanagement = HotelManagement::latest()->take(6)->get();
+        return view ('welcome',compact('hotelmanagement'));
     }
 
     public function aboutus()

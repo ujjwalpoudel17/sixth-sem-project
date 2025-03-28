@@ -19,7 +19,7 @@
                 </tr>
     @foreach($hotelmanagement as $hotel)
 <tr class="text-center">
-    <td class="border p-2">1.</td>
+    <td class="border p-2">{{$loop->iteration}}</td>
     <td class="border p-2">{{$hotel->name}}</td>
     <td class="border p-2">{{$hotel->address}}</td>
     <td class="border p-2">{{$hotel->about}}</td>

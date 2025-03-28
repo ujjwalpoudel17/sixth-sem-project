@@ -1,125 +1,135 @@
-
-
-    <!-- <a href="{{('/')}}" class="text-2xl">Home</a>
+<!-- <a href="{{('/')}}" class="text-2xl">Home</a>
     <a href="{{('/about')}}">About Us</a>
     <a href="{{('/contact')}}">Contact Us</a>
     <a href="{{('/signup')}}">Signup</a>
     <a href="{{('/login')}}">Login</a> -->
-    @extends('layouts.master')
+@extends('layouts.master')
 @section('content')
-    <div class="bg-[url('https://th.bing.com/th/id/R.979beb749a45ccc532a005e065d1f273?rik=WPGIfV3ClXqFlg&pid=ImgRaw&r=0')] bg-cover bg-center w-full h-96 shadow-2xl">
-    <div class="relative h-full bg-black bg-opacity-25 flex flex-col justify-center items-center">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-20 w-full md:w-auto">
-            <div class="text-center md:text-left">
-                <label class="text-white text-xl md:text-2xl font-medium">Check-in Date</label>
-                <input type="date" class="w-full p-2 mt-2 rounded-2xl" />
-            </div>
-            <div class="text-center md:text-left">
-                <label class="text-white text-xl md:text-2xl font-medium">Check-out Date</label>
-                <input type="date" class="w-full p-2 mt-2 rounded-2xl" />
-            </div>
-            <div class="text-center md:text-left">
-    <label class="text-white text-xl md:text-2xl font-medium">Room Type</label>
-    <select class="w-full p-2 mt-2 rounded-2xl bg-white text-black">
-        <option value="single">Single Bedroom</option>
-        <option value="double">Double Bedroom</option>
-        <option value="master">Master Bedroom</option>
-        <option value="normal">normal Bedroom</option>
-    </select>
+<div class="bg-[url('https://th.bing.com/th/id/R.979beb749a45ccc532a005e065d1f273?rik=WPGIfV3ClXqFlg&pid=ImgRaw&r=0')] bg-cover bg-center w-full h-96 shadow-2xl">
+  <div class="relative h-full bg-black bg-opacity-25 flex flex-col justify-center items-center">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-20 w-full md:w-auto">
+      <div class="text-center md:text-left">
+        <label class="text-white text-xl md:text-2xl font-medium">Check-in Date</label>
+        <input type="date" class="w-full p-2 mt-2 rounded-2xl" />
+      </div>
+      <div class="text-center md:text-left">
+        <label class="text-white text-xl md:text-2xl font-medium">Check-out Date</label>
+        <input type="date" class="w-full p-2 mt-2 rounded-2xl" />
+      </div>
+      <div class="text-center md:text-left">
+        <label class="text-white text-xl md:text-2xl font-medium">Room Type</label>
+        <select class="w-full p-2 mt-2 rounded-2xl bg-white text-black">
+          <option value="single">Single Bedroom</option>
+          <option value="double">Double Bedroom</option>
+          <option value="master">Master Bedroom</option>
+          <option value="normal">normal Bedroom</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="mt-8">
+      <a href="" class="font-medium border-2 text-white bg-fuchsia-800 p-2 rounded-2xl hover:text-white hover:bg-blue-600">Submit</a>
+    </div>
+  </div>
 </div>
 
+<!-- 
+<div>
+  <h1 class="font-bold text-xl md:text-2xl mx-4 md:mx-20 mt-10 md:mt-20">
+    Get up to 10% discount on these Hotels
+  </h1>
+  <div class="mx-4 md:mx-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 rounded-2xl mt-4 mb-10 md:mb-28">
+    @foreach($hotelmanagement as $hotel)
+    <a href="{{('/hoteldetails')}}">
+      <div class="shadow border-2 rounded-2xl">
+        <img src="{{asset('images/hotel/photopath/'.$hotel->photopath)}}" class="rounded-t-2xl w-full h-52 object-cover" alt="Hotel Moonlight and Bar" />
+        <p class="mx-4 mt-4 font-bold">Hotel Moonlight and Bar</p>
+        <div class="flex justify-between items-center mx-4 mt-4">
+          <p class="font-medium"><i class="fa-solid fa-water-ladder text-blue-600"></i> Pool</p>
+          <p class="font-medium"><i class="fa-solid fa-water text-blue-600"></i> Lakeview</p>
+          <p class="font-medium"><i class="fa-solid fa-spa text-blue-600"></i> Spa</p>
         </div>
-        <div class="mt-8">
-            <a href="" class="font-medium border-2 text-white bg-fuchsia-800 p-2 rounded-2xl hover:text-white hover:bg-blue-600">Submit</a>
+        <p class="text-right mt-8 mx-4 mb-4"><span class="font-medium">Starting Price:</span> Rs.2,500</p>
+        @endforeach
+      </a>
+      </div>
+</div> -->
+
+<div>
+  <h1 class="font-bold text-xl md:text-2xl mx-4 md:mx-20 mt-10 md:mt-20">
+    Get up to 10% discount on these Hotels
+  </h1>
+  <div class="mx-4 md:mx-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 rounded-2xl mt-4 mb-10 md:mb-28">
+    @foreach($hotelmanagement as $hotel)
+    <a href="{{ route('hoteldetails',$hotel->id) }}" class="shadow border-2 rounded-2xl block">
+      <div>
+        <img src="{{ asset('images/hotel/'.$hotel->photopath) }}" class="rounded-t-2xl w-full h-52 object-cover" alt="{{ $hotel->name }}" />
+        <p class="mx-4 mt-4 font-bold">{{ $hotel->name }}</p>
+        <div class="flex justify-between items-center mx-4 mt-4">
+          <p class="font-medium"><i class="fa-solid fa-water-ladder text-blue-600"></i> Pool</p>
+          <p class="font-medium"><i class="fa-solid fa-water text-blue-600"></i> Lakeview</p>
+          <p class="font-medium"><i class="fa-solid fa-spa text-blue-600"></i> Spa</p>
         </div>
-    </div>
+        <p class="text-right mt-8 mx-4 mb-4">
+          <span class="font-medium">Starting Price:</span> Rs.{{$hotel->price }}
+        </p>
+      </div>
+    </a>
+    @endforeach
+  </div>
 </div>
+
+
+
+
+
 
 
 <div>
-      <h1 class="font-bold text-xl md:text-2xl mx-4 md:mx-20 mt-10 md:mt-20">
-        Get up to 10% discount on these Hotels
-      </h1>
-<a href="{{('/hoteldetails')}}">
-      <div class="mx-4 md:mx-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 rounded-2xl mt-4 mb-10 md:mb-28">
-        <div class="shadow border-2 rounded-2xl">
-          <img src="https://th.bing.com/th/id/OIP.-wcXcPg9mUaWmMJuoWXgHgAAAA?w=303&h=202&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="rounded-t-2xl w-full h-52 object-cover" alt="Hotel Moonlight and Bar" />
-          <p class="mx-4 mt-4 font-bold">Hotel Moonlight and Bar</p>
-          <div class="flex justify-between items-center mx-4 mt-4">
-            <p class="font-medium"><i class="fa-solid fa-water-ladder text-blue-600"></i> Pool</p>
-            <p class="font-medium"><i class="fa-solid fa-water text-blue-600"></i> Lakeview</p>
-            <p class="font-medium"><i class="fa-solid fa-spa text-blue-600"></i> Spa</p>
-          </div>
-          <p class="text-right mt-8 mx-4 mb-4"><span class="font-medium">Starting Price:</span> Rs.2,500</p>
-        </div>
-        </a>
-        <div class="shadow border-2 rounded-2xl">
-          <img src="https://th.bing.com/th/id/OIP.-wcXcPg9mUaWmMJuoWXgHgAAAA?w=303&h=202&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="rounded-t-2xl w-full h-52 object-cover" alt="Hotel Moonlight and Bar" />
-          <p class="mx-4 mt-4 font-bold">Hotel Moonlight and Bar</p>
-          <div class="flex justify-between items-center mx-4 mt-4">
-            <p class="font-medium"><i class="fa-solid fa-water-ladder text-blue-600"></i> Pool</p>
-            <p class="font-medium"><i class="fa-solid fa-water text-blue-600"></i> Lakeview</p>
-            <p class="font-medium"><i class="fa-solid fa-spa text-blue-600"></i> Spa</p>
-          </div>
-          <p class="text-right mt-8 mx-4 mb-4"><span class="font-medium">Starting Price:</span> Rs.2,500</p>
-        </div>
+  <h1 class="font-bold text-xl md:text-2xl mx-4 md:mx-20 mt-10 md:mt-20">
+    Trending Destinations
+  </h1>
+  <p class="font-medium mx-4 md:mx-20 mt-2">
+    Most popular choice for travelers of Nepal
+  </p>
 
-     
+  <div class="mx-4 md:mx-20 mb-10 md:mb-28 mt-4 rounded-2xl">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 rounded-2xl">
+      <div>
+        <img
+          src="https://www.rhinolandchitwan.com/images/2nights/1.jpg"
+          class="w-full h-64 md:h-96 rounded-2xl object-cover"
+          alt="Trending Destination 1" />
+      </div>
+      <div>
+        <img
+          src="https://english.onlinekhabar.com/wp-content/uploads/2016/08/Chitwan-Sauraha-22.jpg"
+          class="w-full h-64 md:h-96 rounded-2xl object-cover"
+          alt="Trending Destination 2" />
       </div>
     </div>
-
-
-
-    <div>
-      <h1 class="font-bold text-xl md:text-2xl mx-4 md:mx-20 mt-10 md:mt-20">
-        Trending Destinations
-      </h1>
-      <p class="font-medium mx-4 md:mx-20 mt-2">
-        Most popular choice for travelers of Nepal
-      </p>
-
-      <div class="mx-4 md:mx-20 mb-10 md:mb-28 mt-4 rounded-2xl">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 rounded-2xl">
-          <div>
-            <img
-              src="https://www.rhinolandchitwan.com/images/2nights/1.jpg"
-              class="w-full h-64 md:h-96 rounded-2xl object-cover"
-              alt="Trending Destination 1"
-            />
-          </div>
-          <div>
-            <img
-              src="https://english.onlinekhabar.com/wp-content/uploads/2016/08/Chitwan-Sauraha-22.jpg"
-              class="w-full h-64 md:h-96 rounded-2xl object-cover"
-              alt="Trending Destination 2"
-            />
-          </div>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
-          <div>
-            <img
-              src="https://cdn.kimkim.com/files/a/content_articles/featured_photos/95553f94d93aea6a42ea8ee16315830ac41fcd7a/big-742b52a5e89568dd813531fc63897836.jpg"
-              class="w-full h-64 md:h-96 rounded-2xl object-cover"
-              alt="Trending Destination 3"
-            />
-          </div>
-          <div>
-            <img
-              src="https://cdn.pixabay.com/photo/2012/02/17/15/27/new-14606_1280.jpg"
-              class="w-full h-64 md:h-96 rounded-2xl object-cover"
-              alt="Trending Destination 4"
-            />
-          </div>
-          <div>
-            <img
-              src="https://lp-cms-production.imgix.net/2019-06/53693064.jpg?fit=crop&q=40&sharp=10&vib=20&auto=format&ixlib=react-8.6.4"
-              class="w-full h-64 md:h-96 rounded-2xl object-cover"
-              alt="Trending Destination 5"
-            />
-          </div>
-        </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+      <div>
+        <img
+          src="https://cdn.kimkim.com/files/a/content_articles/featured_photos/95553f94d93aea6a42ea8ee16315830ac41fcd7a/big-742b52a5e89568dd813531fc63897836.jpg"
+          class="w-full h-64 md:h-96 rounded-2xl object-cover"
+          alt="Trending Destination 3" />
+      </div>
+      <div>
+        <img
+          src="https://cdn.pixabay.com/photo/2012/02/17/15/27/new-14606_1280.jpg"
+          class="w-full h-64 md:h-96 rounded-2xl object-cover"
+          alt="Trending Destination 4" />
+      </div>
+      <div>
+        <img
+          src="https://lp-cms-production.imgix.net/2019-06/53693064.jpg?fit=crop&q=40&sharp=10&vib=20&auto=format&ixlib=react-8.6.4"
+          class="w-full h-64 md:h-96 rounded-2xl object-cover"
+          alt="Trending Destination 5" />
       </div>
     </div>
+  </div>
+</div>
 
 
 <h1 class="text-5xl font-monospace text-center ">How <span class="text-blue-500">BookItNow</span> Works ?</h1>
@@ -145,7 +155,7 @@
 
 
 
-    <div>
+<div>
   <h1 class="font-bold text-xl md:text-2xl mx-4 md:mx-20 mt-10 md:mt-20">
     Take a dip at these top-rated hotels
   </h1>
@@ -154,8 +164,7 @@
       <img
         src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/c8/24/84/main-pool-area-which.jpg?w=900&h=-1&s=1"
         class="rounded-2xl w-full h-60 sm:h-72 md:h-80 object-cover"
-        alt="Annapurna Hotel And Spa"
-      />
+        alt="Annapurna Hotel And Spa" />
       <p class="mx-4 text-xl md:text-2xl font-bold">Annapurna Hotel And Spa</p>
       <div class="flex justify-between items-center mx-4 mt-4">
         <p class="font-medium">
@@ -170,8 +179,7 @@
       </div>
       <button
         type="submit"
-        class="bg-blue-600 w-full text-center p-2 text-white mt-4"
-      >
+        class="bg-blue-600 w-full text-center p-2 text-white mt-4">
         View Price
       </button>
     </div>
@@ -180,8 +188,7 @@
       <img
         src="https://images.huffingtonpost.com/2017-04-28-1493369250-7939453-EveningPool2150941.jpg"
         class="rounded-2xl w-full h-60 sm:h-72 md:h-80 object-cover"
-        alt="Hotel Moonlight and Bar"
-      />
+        alt="Hotel Moonlight and Bar" />
       <p class="mx-4 text-xl md:text-2xl font-bold">Hotel Moonlight and Bar</p>
       <div class="flex justify-between items-center mx-4 mt-4">
         <p>jacuzzi</p>
@@ -190,8 +197,7 @@
       </div>
       <button
         type="submit"
-        class="bg-blue-600 w-full text-center p-2 text-white mt-4"
-      >
+        class="bg-blue-600 w-full text-center p-2 text-white mt-4">
         View Price
       </button>
     </div>
@@ -200,8 +206,7 @@
       <img
         src="https://th.bing.com/th/id/OIP.xlrVyoDnqYJOol9NxHa4nwHaE7?rs=1&pid=ImgDetMain"
         class="rounded-2xl w-full h-60 sm:h-72 md:h-80 object-cover"
-        alt="Fewa Hotel And Lodge"
-      />
+        alt="Fewa Hotel And Lodge" />
       <p class="mx-4 text-xl md:text-2xl font-bold">Fewa Hotel And Lodge</p>
       <div class="flex justify-between items-center mx-4 mt-4">
         <p>Pool</p>
@@ -210,8 +215,7 @@
       </div>
       <button
         type="submit"
-        class="bg-blue-600 w-full text-center p-2 text-white mt-4"
-      >
+        class="bg-blue-600 w-full text-center p-2 text-white mt-4">
         View Price
       </button>
     </div>
@@ -229,22 +233,9 @@
     <img
       src="https://static.vecteezy.com/ti/vecteur-libre/p3/15694771-interieur-de-la-reception-de-l-hotel-avec-des-receptionnistes-et-des-voyageurs-pour-la-reservation-en-illustration-de-modele-dessine-a-la-main-de-dessin-anime-plat-vectoriel.jpg"
       class="h-40 md:h-48 lg:h-52 rounded-2xl mt-4 mb-4 object-cover"
-      alt="Partnered Travel Booking"
-    />
+      alt="Partnered Travel Booking" />
   </div>
 </div>
 
-    
+
 @endsection
-
-
-
-
-
-
-
-    
-
-  
-   
-

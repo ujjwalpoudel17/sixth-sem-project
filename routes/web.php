@@ -3,6 +3,7 @@
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PagesController::class,'index'])
@@ -23,7 +24,7 @@ Route::get('/signup',[PagesController::class,'signup'])
 Route::get('/signuphotel',[PagesController::class,'signuphotel'])
 ->name('signuphotel');
 
-Route::get('/hoteldetails',[PagesController::class,'hoteldetails'])
+Route::get('/hoteldetails/{id}',[PagesController::class,'hoteldetails'])
 ->name('hoteldetails');
  
 Route::get('/login',[PagesController::class,'login'])
@@ -63,6 +64,28 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/hotelmanagement/{id}/edit',[HotelController::class,'edit'])
     ->name('hotelmanagement.edit');
+
+    Route::post('/hotelmanagement/{id}/update',[HotelController::class,'update'])
+    ->name('hotelmanagement.update');
+
+    //roommanagement
+    Route::get('/roommanagement',[RoomController::class,'index'])
+    ->name('roommanagement.index');
+
+    Route::get('/roommanagement/create',[RoomController::class,'create'])
+    ->name('roommanagement.create');
+
+    Route::post('/roommanagement/store',[RoomController::class,'store'])
+    ->name('roommanagement.store');
+
+    Route::get('/roommanagement/edit',[RoomController::class,'edit'])
+    ->name('roommanagement.edit');
+
+    Route::post('/roommanagement/update',[RoomController::class,'update'])
+    ->name('roommanagement.update');
+
+    Route::post('/roommanagement/destroy',[RoomController::class,'destroy'])
+    ->name('roommanagement.destroy');
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
