@@ -34,7 +34,7 @@
                 <a href="{{('/login')}}" class="font-medium border-2 p-2 border-black rounded-2xl hover:bg-blue-500 hover:text-white" >
                     Login
                 </a>
-                <a href="{{('/signup')}}" class="font-medium border-2 text-white bg-fuchsia-800 p-2 rounded-2xl hover:bg-blue-600" >
+                <a href="{{('/register')}}" class="font-medium border-2 text-white bg-fuchsia-800 p-2 rounded-2xl hover:bg-blue-600" >
                     Signup
                 </a>
                

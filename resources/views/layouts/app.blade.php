@@ -16,10 +16,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body class="font-sans antialiased bg-gray-100 text-gray-800">
-
-<div class="flex min-h-screen">
+@include('layouts.alert')
+<div class="flex ">
     
-    <div class="w-72 bg-gradient-to-b from-indigo-700 to-purple-800 text-white shadow-lg flex flex-col justify-between">
+    <div class="w-72 bg-gradient-to-b from-indigo-700 to-purple-800 text-white shadow-lg flex flex-col justify-between fixed h-screen">
         <!-- Profile -->
         <div>
             <div class="flex justify-center mt-10">
@@ -56,10 +56,6 @@
                 </div>
 
                 <a href="#" class="flex items-center px-4 py-3 rounded-lg hover:bg-indigo-600 transition transform hover:scale-105 shadow">
-                    <i class="fa-solid fa-tag mr-3"></i> Discount & Promotion
-                </a>
-
-                <a href="#" class="flex items-center px-4 py-3 rounded-lg hover:bg-indigo-600 transition transform hover:scale-105 shadow">
                     <i class="fa-solid fa-registered mr-3"></i> Reservations
                 </a>
 
@@ -71,17 +67,19 @@
                     <i class="fa-solid fa-money-bill-wave mr-3"></i> Payments
                 </a>
 
-                <a href="#" class="flex items-center px-4 py-3 rounded-lg hover:bg-indigo-600 transition transform hover:scale-105 shadow">
+                <a href="" class="flex items-center px-4 py-3 rounded-lg hover:bg-indigo-600 transition transform hover:scale-105 shadow">
                     <i class="fa-regular fa-user mr-3"></i> My Profile
                 </a>
 
                 <a href="#" class="flex items-center px-4 py-3 rounded-lg hover:bg-indigo-600 transition transform hover:scale-105 shadow">
                     <i class="fa-solid fa-key mr-3"></i> Change Password
                 </a>
-
-                <a href="#" class="flex items-center px-4 py-3 rounded-lg hover:bg-red-600 transition transform hover:scale-105 shadow">
+                <form action="{{route('logout')}}" method="POST" class="">
+                @csrf
+                <button type="submit" class="flex w-full items-center px-4 py-3 rounded-lg hover:bg-red-600 transition transform hover:scale-105 shadow">
                     <i class="fa-solid fa-right-from-bracket mr-3"></i> Logout
-                </a>
+                </button>
+                </form>
             </nav>
         </div>
 
@@ -92,7 +90,7 @@
     </div>
 
 
-    <div class="flex-1 p-8">
+    <div class="flex-1 p-8 ml-72">
        
         <div class="flex justify-between items-center mb-4">
             <h2 class="text-3xl font-bold text-indigo-700">@yield('title')</h2>

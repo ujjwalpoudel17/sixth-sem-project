@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HotelManagement;
+use App\Models\RoomManagement;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -34,17 +35,26 @@ public function signuphotel(){
     return view('signuphotel');
 }
 
-public function hoteldetails(){
-    return view('hoteldetails');
+public function hoteldetails($id){
+    $hotelmanagement = HotelManagement::findOrFail($id);
+    $roommanagement = RoomManagement::where('hotelmanagement_id', $id)->get();
+    return view('hoteldetails',compact('hotelmanagement','roommanagement'));
 }
 
 public function login(){
     return view('login');
 }
 
-public function roomdetails(){
-    return view('roomdetails');
+public function roomdetails($id){
+    $roommanagement = RoomManagement::findOrFail($id);
+    $relatedrooms = RoomManagement::where('hotelmanagement_id', $roommanagement->hotelmanagement_id)
+    ->where('id','!=',$id)
+    ->latest()
+    ->take(4)
+    ->get();
+    return view('roomdetails', compact('roommanagement','relatedrooms'));
 }
+
 
 public function bookingform(){
     return view('bookingform');

@@ -4,42 +4,44 @@
 <div class="">
     <div class="grid grid-cols-1 mb-5 mt-5">
         <div class="grid grid-cols-2  mt-10 gap-20 mx-32 border-b-2 rounded-1">
-          
+       
             <div class="">
                
-                <img src="https://th.bing.com/th/id/OIP.-wcXcPg9mUaWmMJuoWXgHgAAAA?w=303&h=202&c=7&r=0&o=5&dpr=1.3&pid=1.7" 
-                     class="rounded-2xl w-full h-64 object-fill " 
+                <img src="{{asset('images/hotel/'.$hotelmanagement->photopath)}}"
+                     class="rounded-2xl w-full h-72 object-fill " 
                      alt="Hotel Moonlight and Bar" />
                      
                 
                 <div class="grid grid-cols-3 gap-4 mt-4">
-                    <img src="https://th.bing.com/th/id/OIP.-wcXcPg9mUaWmMJuoWXgHgAAAA?w=303&h=202&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="w-full h-full object-cover rounded-lg shadow-lg" alt="" />
-                    <img src="https://th.bing.com/th/id/OIP.-wcXcPg9mUaWmMJuoWXgHgAAAA?w=303&h=202&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="w-full h-full object-cover rounded-lg shadow-lg" alt="" />
-                    <img src="https://th.bing.com/th/id/OIP.-wcXcPg9mUaWmMJuoWXgHgAAAA?w=303&h=202&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="w-full h-full object-cover rounded-lg shadow-lg" alt="" />
+                    <img src="{{asset('images/hotel/'.$hotelmanagement->photopath2)}}" class="w-full h-44 object-cover rounded-lg shadow-lg" alt="" />
+                    <img src="{{asset('images/hotel/'.$hotelmanagement->photopath3)}}" class="w-full h-44 object-cover rounded-lg shadow-lg" alt="" />
+                    <img src="{{asset('images/hotel/'.$hotelmanagement->photopath4)}}" class="w-full h-44 object-cover rounded-lg shadow-lg" alt="" />
                 </div>
             </div>
 
            
             <div class="flex flex-col justify-center">
-                <p class="mx-10 font-bold text-3xl mb-4 text-center text-blue-500">Hotel Moonlight and Bar</p>
+                <p class="mx-10 font-bold text-3xl mb-4 text-center text-blue-500">{{$hotelmanagement->name}}</p>
                 <span class="font-semibold text-blue-500 text-xl">About :</span>   
                 <p class="font-light mt-2 mb-4"> 
-                    You might be eligible for a Genius discount at Kathmandu Aagantuk Hotel. To check if a Genius discount is available for your selected dates, sign in.
-                    Genius discounts at this property are subject to book dates, stay dates, and other available deals.
+                   {{$hotelmanagement->about}}
                 </p>
 
                 <span class="font-semibold text-blue-500 text-xl">Features :</span>   
-                <p class="font-light mt-2">Lakeview</p>
-                <p class="font-light">Lakeview</p>
-                <p class="font-light mb-4">Spa</p>
+                <p class="font-light mt-2">{{$hotelmanagement->features}}</p>
+                <p class="font-light">{{$hotelmanagement->features}}</p>
+                <p class="font-light mb-4">{{$hotelmanagement->features}}</p>
 
                 <span class="font-semibold text-blue-500 text-xl">Available Facilities :</span>   
-                <p class="font-light mt-2">Lakeview</p>
-                <p class="font-light">Lakeview</p>
-                <p class="font-light mb-10">Spa</p>
+                <p class="font-light mt-2">{{$hotelmanagement->facilities}}</p>
+                <p class="font-light">{{$hotelmanagement->facilities}}</p>
+                <p class="font-light mb-4">{{$hotelmanagement->facilities}}</p>
 
+                <span class="font-semibold text-blue-500 text-xl">Address :</span>   
+                <p class="font-light mt-2 mb-10">{{$hotelmanagement->address}}</p>
                 
             </div>
+          
         </div>
     </div>
 </div>
@@ -87,24 +89,24 @@
   <div class="mt-6 border-t border-gray-100 mx-32 border-2">
     <dl class="divide-y divide-gray-100">
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm/6 font-medium text-gray-900 text-center">Full name</dt>
-        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">Margot Foster</dd>
+        <dt class="text-sm/6 font-medium text-gray-900 text-center">Check in:</dt>
+        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">{{$hotelmanagement->rules}}</dd>
       </div>
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm/6 font-medium text-gray-900 text-center">Application for</dt>
-        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">Backend Developer</dd>
+        <dt class="text-sm/6 font-medium text-gray-900 text-center">Check out:</dt>
+        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">{{$hotelmanagement->rules}}</dd>
       </div>
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm/6 font-medium text-gray-900 text-center">Email address</dt>
-        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">margotfoster@example.com</dd>
+        <dt class="text-sm/6 font-medium text-gray-900 text-center">Age Restriction:</dt>
+        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">{{$hotelmanagement->rules}}</dd>
       </div>
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm/6 font-medium text-gray-900 text-center">Salary expectation</dt>
-        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">$120,000</dd>
+        <dt class="text-sm/6 font-medium text-gray-900 text-center">Pets</dt>
+        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">{{$hotelmanagement->rules}}</dd>
       </div>
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-        <dt class="text-sm/6 font-medium text-gray-900 text-center">About</dt>
-        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.</dd>
+        <dt class="text-sm/6 font-medium text-gray-900 text-center">Parties</dt>
+        <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">{{$hotelmanagement->rules}}</dd>
       </div>
     </dl>
   </div>
@@ -126,33 +128,17 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="border p-2 ">
-                  <u>
-                  <a href="{{('roomdetails')}}" class="text-blue-500 font-bold">Single Bedroom</a>
+          @foreach($roommanagement as $room)
+          <tr>
+            <td class="border p-2 ">
+              <u>
+                  <a href="{{route('roomdetails',$room->id)}}" class="text-blue-500 font-bold">{{$room->roomtype}}</a>
                   </u>
                 </td>
                 <td class="border p-2 text-center font-bold">2</td>
-                <td class="border p-2 text-center font-bold">Rs. 2000 per Day</td>
+                <td class="border p-2 text-center font-bold">Rs. {{$room->price}} per Day</td>
             </tr>
-            <tr>
-                <td class="border p-2 ">
-                  <u>
-                  <a href="" class="text-blue-500 font-bold">Double Bedroom</a>
-                  </u>
-                </td>
-                <td class="border p-2 text-center font-bold">3</td>
-                <td class="border p-2 text-center font-bold">Rs. 2500 per Day</td>
-            </tr>
-            <tr>
-                <td class="border p-2 ">
-                  <u>
-                  <a href="" class="text-blue-500 font-bold">Master Bedroom</a>
-                  </u>
-                </td>
-                <td class="border p-2 text-center font-bold">2</td>
-                <td class="border p-2 text-center font-bold">Rs. 3000 per Day</td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

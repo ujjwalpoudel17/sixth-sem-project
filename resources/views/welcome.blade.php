@@ -57,7 +57,7 @@
 
 <div>
   <h1 class="font-bold text-xl md:text-2xl mx-4 md:mx-20 mt-10 md:mt-20">
-    Get up to 10% discount on these Hotels
+    Looking for the perfect stay ?
   </h1>
   <div class="mx-4 md:mx-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 rounded-2xl mt-4 mb-10 md:mb-28">
     @foreach($hotelmanagement as $hotel)
@@ -132,24 +132,26 @@
 </div>
 
 
-<h1 class="text-5xl font-monospace text-center ">How <span class="text-blue-500">BookItNow</span> Works ?</h1>
-<div class="grid grid-cols-3 gap-4 shadow p-4 m-4 mx-20 mt-8 border-2 rounded-1">
+<h1 class="text-5xl font-monospace text-center">How <span class="text-blue-500">BookItNow</span> Works ?</h1>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 shadow p-4 m-4 mx-4 md:mx-20 mt-8 border-2 rounded-1">
   <div class="text-center">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtS7dtxVldf9qDkFF_3B8YjA2PZRiZ0s-TiA&s" class="w-40 h-40 mx-auto image-cover" alt="" />
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtS7dtxVldf9qDkFF_3B8YjA2PZRiZ0s-TiA&s" class="w-32 h-32 mx-auto image-cover md:w-40 md:h-40" alt="" />
     <h1 class="text-2xl font-bold text-2xl">Connect Wallet</h1>
     <p class="font-medium mt-4 text-gray-800">Securely connect your wallet to unlock a world of exclusive benefits, including special hotel offers tailored for Web3 users.</p>
   </div>
   <div class="text-center">
-    <img src="https://thumbs.dreamstime.com/z/button-text-best-deals-round-banner-53663964.jpg" class="w-40 h-40 mx-auto image-cover" alt="" />
+    <img src="https://thumbs.dreamstime.com/z/button-text-best-deals-round-banner-53663964.jpg" class="w-32 h-32 mx-auto image-cover md:w-40 md:h-40" alt="" />
     <h1 class="text-2xl font-bold text-2xl">Get Personal Offers</h1>
     <p class="font-medium mt-4 text-gray-800">Explore a curated selection of exclusive hotel offers, accessible only to wallet-connected users. Enjoy unbeatable rates and personalized deals.</p>
   </div>
   <div class="text-center">
-    <img src="https://thumbs.dreamstime.com/z/check-out-icon-vector-hotel-collection-thin-line-outline-illustration-linear-symbol-use-web-mobile-apps-logo-print-143258208.jpg" class="w-40 h-40 mx-auto image-cover" alt="" />
+    <img src="https://thumbs.dreamstime.com/z/check-out-icon-vector-hotel-collection-thin-line-outline-illustration-linear-symbol-use-web-mobile-apps-logo-print-143258208.jpg" class="w-32 h-32 mx-auto image-cover md:w-40 md:h-40" alt="" />
     <h1 class="text-2xl font-bold text-2xl">Book And Checkout</h1>
     <p class="font-medium mt-4 text-gray-800">Seamlessly book your preferred accommodation and complete your check out process. Choose to pay conveniently with over 200+ cryptocurrency options, making your travel experience as smooth as possible.</p>
   </div>
 </div>
+
 
 
 

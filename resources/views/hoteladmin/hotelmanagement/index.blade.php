@@ -35,11 +35,55 @@
         </td>
     <td class="border p-2 items-center">
         <a href="{{route('hotelmanagement.edit',$hotel->id)}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl">Edit</a>
-        <a href=""  class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-xl mt-2 cursor-pointer">Delete</a>
+        <a onclick="showPopup('{{$hotel->id}}')"  class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-xl mt-2 cursor-pointer">Delete</a>
     </td>
 </tr>
 @endforeach
           </table>
+
+          <div id="popup" class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-2xl shadow-xl w-full max-w-sm animate-scale-in">
+        <h2 class="text-center text-2xl font-semibold text-gray-800 mb-4">⚠️ Are You Sure?</h2>
+        <form action="{{route('hotelmanagement.destroy')}}" method="POST">
+            @csrf
+            <input type="hidden" name="id" id="deleteid">
+            <div class="flex justify-center mt-4 gap-4">
+                <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition duration-200 ease-in-out shadow-md">Delete</button>
+                <a onclick="hidePopup()" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-lg cursor-pointer transition duration-200 ease-in-out shadow-md">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .animate-scale-in {
+        animation: scaleIn 0.3s ease-out;
+    }
+
+    @keyframes scaleIn {
+        from {
+            transform: scale(0.8);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+</style>
+
+
+<script>
+    function showPopup(a){
+        document.getElementById('deleteid').value = a;
+        document.getElementById('popup').classList.remove('hidden');
+        document.getElementById('popup').classList.add('flex');
+    }
+    function hidePopup(){
+        document.getElementById('popup').classList.remove('flex');
+        document.getElementById('popup').classList.add('hidden');
+    }
+</script>
 
 
 

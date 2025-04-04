@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\HotelManagement;
 use App\Models\RoomManagement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class RoomController extends Controller
 {
@@ -67,12 +68,25 @@ class RoomController extends Controller
         return redirect()->route('roommanagement.index')->with('success', 'Room created successfully');
     }
     
-    public function edit(){
-        return view('hoteladmin.roommanagement.edit');
+    public function edit($id){
+        $roommanagement = RoomManagement::find($id);
+        $hotelmanagement = HotelManagement::get();
+        return view('hoteladmin.roommanagement.edit',compact('roommanagement','hotelmanagement'));
     }
 
     public function update(Request $request, $id ){
         return redirect()->route('hoteladmin.roommanagement.index')->with('success','Room updated Sucessfully');
+    }
+
+    public function destroy(Request $request)
+    {
+        $roommanagement = RoomManagement::find($request->id);
+        File::delete(public_path('images/room/' . $roommanagement->photopath));
+        File::delete(public_path('images/room/' . $roommanagement->photopath2));
+        File::delete(public_path('images/room/' . $roommanagement->photopath3));
+        File::delete(public_path('images/room/' . $roommanagement->photopath4));
+        $roommanagement->delete();
+        return redirect()->route('roommanagement.index')->with('success', 'Room Deleted Successfully');
     }
 
 }
